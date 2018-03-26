@@ -2,7 +2,7 @@
   <h1>プロフィール編集</h1>
   <div class="row">
     <%= form_for @user do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <!-- 画像 -->
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -17,7 +17,6 @@
           <%= f.hidden_field :image_cache %>
         </div>
         <div class="field">
-          <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
           <% if @user.persisted? && @user.image? %><% end %>
         </div>
 

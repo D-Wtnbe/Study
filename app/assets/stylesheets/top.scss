@@ -93,6 +93,11 @@ h3 {
   text-align: center;
 }
 
+h4 {
+  font-size: 2em;
+  text-align: left;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -247,4 +252,15 @@ input {
       border-bottom: 1px solid $gray-lighter;
     }
   }
+}
+
+.left {
+    margin-right: auto;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.right {
+    margin-left: auto;
 }

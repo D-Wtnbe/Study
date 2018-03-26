@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
    def show
      @user = User.find(params[:id])
+     @micropost = current_user.microposts.build if logged_in?
      @microposts = @user.microposts.paginate(page: params[:page])
    end
    def new
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   def destroy
  @user = User.find(params[:id])
  @user.destroy
- redirect_to users_path
+ redirect_to login_url
  end
 
 #ログインしているかを確認
