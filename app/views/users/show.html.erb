@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, width:'300', height:'300' %>
+        <% end %>
+      </div>
+      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container" style="border-bottom:1px solid black">
+          <h3><%= @user.name %></h3>
+        </div>
+        <hr>
+        <div class=" col-md-9 col-lg-9 ">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>ユーザーID:</td>
+                <td><%= @user.userid %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス:</td>
+                <td><%= @user.email %></td>
+              </tr>
+              <tr>
+                <td>性別:</td>
+                <td><%= @user.gender %></td>
+              </tr>
+              <tr>
+                <td>生年月日:</td>
+                <td><%= @user.birthday %></td>
+              </tr>
+              <tr>
+                <td>年齢:</td>
+                <td><%= @user.age %>歳</td>
+              </tr>
+              <tr>
+                <td>出身地:</td>
+                <td><%= @user.prefecture_name %></td>
+              </tr>
+
+            </tbody>
+          </table>
+<% if current_user.id == @user.id %>
+          <%= link_to '編集', edit_user_path(@user), class: "btn btn-info" %>
+          |
+          <%= link_to '削除', users_path, class: "btn btn-danger" %>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <% if @user.microposts.any? %>
+        <h3>つぶやき (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </div>
+  </div>

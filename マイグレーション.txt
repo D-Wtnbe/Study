@@ -1,0 +1,4 @@
+rake db:drop:_unsafe
+rake db:migrate
+
+

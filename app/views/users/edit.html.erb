@@ -1,0 +1,87 @@
+<div class="container" style="padding-top: 60px;">
+  <h1>プロフィール編集</h1>
+  <div class="row">
+    <%= form_for @user do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <!-- 画像 -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <div class="field">
+          <label class="col-lg-3 control-label">画像:</label>
+          <% if @user.image? %>
+            <%= image_tag @user.image.url, width:'300', height:'300' %>
+            <br>
+          <% end %><br>
+          <%= f.file_field :image %>
+          <%= f.hidden_field :image_cache %>
+        </div>
+        <div class="field">
+          <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+          <% if @user.persisted? && @user.image? %><% end %>
+        </div>
+
+      </div>
+    </div>
+    <!-- マイページ編集項目 -->
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">名前:</label>
+          <div class="col-lg-8">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">メールアドレス:</label>
+          <div class="col-lg-8">
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">パスワード:</label>
+          <div class="col-lg-8">
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">パスワードを再入力:</label>
+          <div class="col-lg-8">
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">性別:</label>
+          <div class="col-lg-8">
+            <%= f.select :gender, User.genders.keys.to_a, {}, {class: ["form-control bootstrap-date"]} %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">生年月日:</label>
+          <div class="col-lg-8">
+            <%= f.date_select:birthday, { start_year:1930,end_year:Time.now.year}, {class: "form-control bootstrap-date"} %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">出身地:</label>
+          <div class="col-lg-8">
+            <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, {}, {class: ["form-control bootstrap-date"]} %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <%= f.submit "送信する", class: "btn btn-primary" %>
+            <span></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,63 @@
+﻿app/views/users/new.html.erb
+app/views/users/edit.html.erb
+app/views/users/index.html.erb
+app/views/users/show.html.erb
+
+app/views/sessions/new.html.erb
+app/controllers/sessions_controller.rb
+app/controllers/users_controller.rb
+app/helpers/sessions_helper.rb
+
+app/models/routes.rb
+
+app/views/layouts/_header.html.erb
+app/views/layouts/_shim.html.erb
+app/views/layouts/_form.html.erb
+app/views/layouts/_footer.html.erb
+app/views/layouts/application.html.erb
+
+app/views/top/index.html.erb
+app/assets/stylesheets/custom.css.scss
+config/application.rb　にconfig.i18n.default_locale = :ja　追加
+
+Gemfile
+
+作成
+app/views/shared/_error_messages.html.erb
+
+
+
+app/viewsにsharedフォルダ作成　_error_messages.html.erb作成
+
+app/config/application.rb
+app/config/locales/ja.yml 日本語辞書を追加し、アラートを日本語化
+
+
+
+ログイン情報を記憶させる
+rails generate migration add_remember_digest_to_users remember_digest:string
+
+画像アップロード
+rails g scaffold Picture date:datetime
+rails g uploader Image
+rails g migration add_image_to_users image:string
+gem install rmagick
+
+
+
+app/controllers/pictures_controller.rb
+app/views/pictures/_form.html.erb
+app/views/pictures/show.html.erb
+config/cloudinary.yml
+
+
+rails g migration add_prefecture_code_to_users prefecture_code:integer
+
+
+ログイン状態をクッキーに保存
+ログイン状態を保存する機能を追加
+ログインしないとプロフィールを編集できないようにした
+
+ページネーション
+<%= paginate @users %>
+
