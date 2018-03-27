@@ -18,8 +18,10 @@ Ruby on Rails(5.1.2)を使用してSNSのようなWebアプリケーションを
 rails sでサーバーを立ち上げ、各ブラウザで http://localhost:3000
 へアクセス
 
+### 補足
+テスト用で作った３０個のアカウントがデータベースに残ってます。
 
-## 参考サイト
+### 参考サイト
 https://railstutorial.jp
 
 http://prog-8.com/languages/rails5
