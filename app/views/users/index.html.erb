@@ -1,5 +1,4 @@
 <h1>ユーザー一覧</h1>
-
 <div class="container">
 
   <form class="form-inline">
@@ -26,7 +25,6 @@
       <table class="table table-bordered">
         <theader>
           <tr>
-            <th><%= sort_link(@search, :userid, 'ユーザーID', default_order: :desc, class: 'btn-default') %></th>
             <th><%= sort_link(@search, :name, '名前', default_order: :desc, class: 'btn-default') %></th>
             <th><%= sort_link(@search, :gemder, '性別', default_order: :desc, class: 'btn-default') %></th>
             <th><%= sort_link(@search, :birhday, '生年月日 （年齢）', default_order: :desc, class: 'btn-default') %></th>
@@ -37,7 +35,6 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= user.userid %></td>
               <td><%= link_to user.name, user_path(user), class: 'btn-default' %></td>
               <td><%= user.gender %></td>
               <td><%= user.birthday %>(<%= user.age %>歳)</td>
