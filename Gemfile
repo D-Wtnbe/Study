@@ -42,6 +42,7 @@ gem 'cloudinary'
 gem 'jp_prefecture'
 gem 'kaminari'
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'faker'
 
 # Use Capistrano for deployment
