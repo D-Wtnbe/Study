@@ -4,7 +4,7 @@
     <%= form_for @user do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-    <!-- 画像 -->
+    <!-- 画像投稿 -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
         <div class="field">
@@ -19,8 +19,12 @@
         <div class="field">
           <% if @user.persisted? && @user.image? %><% end %>
         </div>
-
       </div>
+      <!-- 画像を削除 -->
+      <%= f.label :remove_image, class: "checkbox inline" do %>
+        <%= f.check_box :remove_image %>
+        <label class="col-lg-4 control-label">画像を削除:</label>
+      <% end %>
     </div>
     <!-- マイページ編集項目 -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
