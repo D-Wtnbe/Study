@@ -15,8 +15,11 @@
           <table class="table table-bordered">
             <tbody>
               <tr>
+                <% if current_user.id == @user.id %>
                 <td>ユーザーID:</td>
                 <td><%= @user.userid %></td>
+                <% else %>
+                <% end %>
               </tr>
               <tr>
                 <td>メールアドレス:</td>
