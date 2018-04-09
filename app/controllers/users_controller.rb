@@ -13,6 +13,8 @@ class UsersController < ApplicationController
      @user = User.find(params[:id])
      @micropost = current_user.microposts.build if logged_in?
      @microposts = @user.microposts.paginate(page: params[:page], per_page: 10)
+     #いいね
+     @likes = Like.where(micropost_id: params[:micropost_id])
    end
 
 #新規作成

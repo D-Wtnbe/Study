@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
 #マイクロポスト
  has_many :microposts, dependent: :destroy
 
+#いいね
+has_many :likes, dependent: :destroy
+has_many :like_microposts, through: :likes, source: :micropost
+
 # 出身地
   include JpPrefecture
 jp_prefecture :prefecture_code

@@ -44,6 +44,7 @@ gem 'kaminari'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'faker'
+gem 'counter_culture'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
