@@ -1,1 +1,1 @@
-$("#like-buttons").html("<%= j(render partial: 'like', locals: { micropost: micropost, likes: @likes }) %>");
+$('#likes_buttons_<%= @micropost.id %>').html("<%= j(render partial: 'likes/like', locals: {micropost: @micropost}) %>");

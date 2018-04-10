@@ -1,12 +1,12 @@
 <% if micropost.like_user(current_user.id) %>
- <%= button_to micropost_like_path(likes, micropost_id: micropost.id), method: :delete, id: "like-button", remote: true do %>
+ <%= button_to micropost_like_path(micropost_id: micropost.id ,id: micropost.likes[0].id), method: :delete, id: "likes_buttons_", remote: true do %>
  <span class="fa fa-heart like-btn-unlike"></span>
  <span>
    <%= micropost.likes_count %>
  </span>
  <% end %>
 <% else %>
-<%= button_to micropost_likes_path(micropost),id: "like-button", remote: true do %>  
+<%= button_to micropost_likes_path(micropost.id), method: :post, id: "likes_buttons_", remote: true do %>
     <span class="fa fa-heart like-btn"></span>
     <span>
       <%= micropost.likes_count %>

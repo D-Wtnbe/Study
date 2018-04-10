@@ -7,5 +7,7 @@
   <span class="timestamp">
     <%= time_ago_in_words(micropost.created_at) %>前に投稿
   </span>
+  <div id="likes_buttons_<%= micropost.id %>">
   <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes } %>
+  </div>
 </li>
